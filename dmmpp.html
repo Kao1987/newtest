@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打妹妹屁屁</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #count-display {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        #hit-button {
+            padding: 15px 30px;
+            font-size: 1em;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #hit-button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <h1>打妹妹屁屁！！</h1>
+    <button id="hit-button">打妹妹的屁屁</button>
+    <div id="count-display">目前打了 0 下</div>
+
+    <script>
+        let count = 0;
+        const button = document.getElementById('hit-button');
+        const display = document.getElementById('count-display');
+
+        button.addEventListener('click', () => {
+            count += 100;
+            display.textContent = `目前打了 ${count} 下`;
+        });
+    </script>
+</body>
+</html>
