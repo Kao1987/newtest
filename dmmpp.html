@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>打妹妹屁屁</title>
+    <title>計算妹妹的屁屁被打的次數</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,21 +26,40 @@
         #hit-button:hover {
             background-color: #d32f2f;
         }
+        #message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: green;
+        }
     </style>
 </head>
 <body>
-    <h1>打妹妹屁屁！！</h1>
+    <h1>妹妹的屁屁被打的次數</h1>
     <button id="hit-button">打妹妹的屁屁</button>
     <div id="count-display">目前打了 0 下</div>
+    <div id="message"></div>
 
     <script>
-        let count = 0;
+        let count = localStorage.getItem('hitCount') ? parseInt(localStorage.getItem('hitCount')) : 0;
         const button = document.getElementById('hit-button');
         const display = document.getElementById('count-display');
+        const message = document.getElementById('message');
+
+        // 更新計數器顯示
+        display.textContent = `目前打了 ${count} 下`;
 
         button.addEventListener('click', () => {
             count += 100;
+            localStorage.setItem('hitCount', count);  // 將數據儲存到 localStorage
             display.textContent = `目前打了 ${count} 下`;
+
+            if (count % 1000 === 0 && count % 10000 !== 0) {
+                message.textContent = 'Great!';
+            } else if (count % 10000 === 0) {
+                alert('你手不酸嗎！！');
+            } else {
+                message.textContent = '';
+            }
         });
     </script>
 </body>
